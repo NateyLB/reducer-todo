@@ -1,5 +1,6 @@
 import React from 'react';
 import { v4 as uuid } from 'uuid';
+import * as moment from 'moment';
 
 
 export const initialState= [{
@@ -22,9 +23,11 @@ export const reducer = (state,action) =>{
                  if (action.payload === item.id) {
                   // change purchased to true
                    //return the item
+                   
                    return {
                      ...item,
-                     completed: !item.completed
+                     completed: !item.completed,
+                     time: moment().format('MMMM Do YYYY h:mm a')
                    };
                  }
                  //if the item does NOT match the id that was clicked
